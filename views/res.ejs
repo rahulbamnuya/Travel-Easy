@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+      <title>Trip Plan</title>
+</head>
+
+<body>
+      <h1>Your Trip Plan</h1>
+
+      <% // Split the trip plan into sections based on headings (##) const sections=tripPlan.split(/\n## /); // Iterate
+            through the sections sections.forEach(function(section) { // Split the section into heading and content
+            const [heading, content]=section.split(/\n/, 2); // Display the heading and content if (heading) { %>
+            <h2>
+                  <%= heading %>
+            </h2>
+            <p>
+                  <%= content %>
+            </p>
+            <% } ); %>
+
+</body>
+
+</html>

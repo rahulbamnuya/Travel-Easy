@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Duty Assignments</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h2>Quiz Duty Assignments</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Day</th>
+                <th>Subject</th>
+                <th>Assigned Teachers</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% quizDuties.forEach(day => { %>
+                <tr>
+                    <td rowspan="<%= day.quizzes.length %>"><%= day.day %></td>
+                    <td><%= day.quizzes[0].subject %></td>
+                    <td>
+                        <ul>
+                            <% day.quizzes[0].teachers.forEach(teacher => { %>
+                                <li><%= teacher %></li>
+                            <% }) %>
+                        </ul>
+                    </td>
+                </tr>
+                <% for (let i = 1; i < day.quizzes.length; i++) { %>
+                    <tr>
+                        <td><%= day.quizzes[i].subject %></td>
+                        <td>
+                            <ul>
+                                <% day.quizzes[i].teachers.forEach(teacher => { %>
+                                    <li><%= teacher %></li>
+                                <% }) %>
+                            </ul>
+                        </td>
+                    </tr>
+                <% } %>
+            <% }) %>
+            <a href="/generate-pdf" target="_blank">Download Quiz Duties PDF</a>
+
+        </tbody>
+    </table>
+</body>
+</html>

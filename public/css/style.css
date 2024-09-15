@@ -1,0 +1,223 @@
+body,
+html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      /* background-color: #121212; */
+      color: rgb(18, 18, 18);
+}
+
+.navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 10px ;
+      border-radius: 20px;
+      background-color: #e9e3e3;
+    
+}
+
+.navbar .logo {
+      font-size: 20px;
+      font-weight: bold;
+   font-style: italic;
+      color: #050404;
+      margin-left: 15px;
+}
+
+.navbar nav ul {
+      list-style: none;
+      display: flex;
+      gap: 60px;
+}
+
+.navbar nav ul li {
+      display: inline;
+}
+
+.navbar nav ul li a {
+      color: #070707;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+      margin-right: 15px;
+}
+
+.navbar nav ul li a.active,
+.navbar nav ul li a:hover {
+      color: #258cd5;
+      text-decoration: underline;
+}
+
+.hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 100px 50px;
+      background: white
+}
+
+.hero-content {
+      max-width: 50%;
+}
+
+.hero-content h1 {
+      font-size: 60px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+}
+
+.hero-content .brand {
+      color: #258cd5;
+      font-weight: bold;
+}
+
+.hero-content p {
+      font-size: 18px;
+      margin-bottom: 40px;
+}
+
+.btn-signup {
+      padding: 15px 30px;
+      background-color: #258cd5;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background-color 0.3s ease;
+}
+
+.btn-signup:hover {
+      background-color: #071178;
+}
+
+.hero-image img {
+      width: 220px;
+      height: auto;
+}
+
+footer {
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+      background-color: #1c1c1c;
+}
+
+footer .social-icons a {
+      margin: 0 15px;
+}
+
+footer .social-icons img {
+      width: 30px;
+      height: 30px;
+}
+/* public/css/form-styles.css */
+body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+}
+
+.containerr {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+}
+
+.form-card {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+}
+
+h2 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+}
+
+p {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+}
+
+.form-group {
+      margin-bottom: 1rem;
+      text-align: left;
+}
+
+.form-group label {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group select {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+}
+
+.checkbox-group {
+      display: flex;
+      justify-content: space-between;
+}
+
+.checkbox-group label {
+      font-size: 0.9rem;
+}
+
+button[type="submit"] {
+      background-color: #000;
+      color: white;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 1rem;
+      font-weight: bold;
+}
+
+button[type="submit"]:hover {
+      background-color: #333;
+}
+#my_card{
+    
+      margin-top: 25px;
+      display: flex;
+      justify-content: space-evenly;
+}
+#bt{
+      background: rgb(126, 126, 187);
+    margin-top: 15px;
+    color: white;
+    border-radius: 5px;
+
+}
+#im{
+      padding-top: 15px;
+      width: 100%;
+      height: 500px;
+}
+.w{
+      background-image: url("https: //static.vecteezy.com/system/resources/previews/019/872/914/original/3d-minimal-holiday-travel-trip-summer-vacation-trip-recreational-time-take-a-flight-map-with-a-location-icon-and-airplane-above-3d-illustration-png.png");
+}
+#close{
+      position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Opticore</title>
+      <link rel="stylesheet" href="/css/style.css">
+      <style>
+            /* Modal Styles */
+            .modal {
+                  display: none;
+                  /* Hidden by default */
+                  position: fixed;
+                  /* Stay in place */
+                  z-index: 1;
+                  /* Sit on top */
+                  left: 0;
+                  top: 0;
+                  width: 100%;
+                  /* Full width */
+                  height: 100%;
+                  /* Full height */
+                  overflow: auto;
+                  /* Enable scroll if needed */
+                  background-color: rgba(0, 0, 0, 0.4);
+                  /* Black with opacity */
+            }
+
+            .modal-content {
+                  background-color: #fefefe;
+                  margin: 15% auto;
+                  padding: 20px;
+                  border: 1px solid #888;
+                  width: 80%;
+                  max-width: 600px;
+            }
+
+            .close-button {
+                  color: #aaa;
+                  float: right;
+                  font-size: 28px;
+                  font-weight: bold;
+            }
+
+            .close-button:hover,
+            .close-button:focus {
+                  color: black;
+                  text-decoration: none;
+                  cursor: pointer;
+            }
+      </style>
+</head>
+
+<body>
+      <header>
+            <div class="navbar">
+                  <div class="logo">Travel Easy</div>
+                  <nav>
+                        <ul>
+                              <li><a href="#" class="active">Home</a></li>
+                              <li><a href="/make-trip" id="open-modal-button">Make Trip</a></li>
+                              <li><a href="#">About</a></li>
+                              <li><a href="#">Services</a></li>
+                        </ul>
+                  </nav>
+            </div>
+      </header>
+      <section class="hero">
+            <div class="hero-content">
+                  <h1>Travel Easy <span class="brand">Plan Your Perfect Trip</span></h1>
+                  <p>Discover, Plan, Explore: Your Ultimate Travel Companion.</p>
+                  <button class="btn-signup"><a href="/make-trip" style="color: wheat;text-decoration: none;">Make your Trip</a></button>
+            </div>
+            <img src="images\image7.png"  style="width: 500px;">
+            <!-- <div class="hero-image">
+                  <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+                        type="module"></script>
+                  <dotlottie-player src="https://lottie.host/d6d6b4f8-ceb2-46bd-9eb0-5825e56441f9/E1Yd3r96tL.lottie"
+                        background="transparent" speed="1" style="width: 300px; height: 300px;" loop
+                        autoplay></dotlottie-player>
+            </div> -->
+      </section>
+      <footer>
+            <div class="social-icons">
+                  <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+                  <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+                  <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+            </div>
+      </footer>
+
+      <!-- Modal for Form -->
+      <div id="modal" class="modal">
+            <div class="modal-content">
+                  <span class="close-button">&times;</span>
+                  <iframe src="/content" width="100%" height="600px" frameborder="0"></iframe>
+            </div>
+      </div>
+
+      
+</body>
+
+</html>
