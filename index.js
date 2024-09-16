@@ -199,16 +199,7 @@ run();
         res.status(500).send('Error generating itinerary');
     }
 });
-app.get('/itineraries', async (req, res) => {
-    const itineraries = await Itinerary.find();
-    console.log(itineraries)
-    res.render('listings/itineraries', { itineraries });
-});
-app.get('/datashow/:id', async (req, res) => {
-    const itineraries = await Itinerary.findById("66b746480a9427bebe5b13b6");
-    console.log(itineraries)
-     res.render('listings/itinerary', { itineraries });
-});
+
 
 
 const port = process.env.PORT || 3000;
