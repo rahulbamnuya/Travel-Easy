@@ -16,13 +16,7 @@ require('dotenv').config();
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 
 // Get the specific model you want to use
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-const Itinerary = require('./models/Itinerary');
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/travel_easy', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+
 const path = require('path');
 // Use ejs-mate for layout support
 const ejsMate = require('ejs-mate');
@@ -35,17 +29,7 @@ app.engine('ejs', ejsMate);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname,"/public")))
 // Function to save itinerary to the database
-async function saveItineraryToDB(itineraryData) {
-  try {
-    const itinerary = new Itinerary(itineraryData);
-    await itinerary.save();
-    console.log('Itinerary saved successfully!');
-  } catch (err) {
-    console.error('Error saving itinerary:', err);
-  } finally {
-    mongoose.connection.close(); // Close the connection when done
-  }
-}
+
 
 
 
