@@ -13,7 +13,7 @@ var accomodation=5
 const app = express();
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 require('dotenv').config();
-const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+const genAI = new GoogleGenerativeAI(process.env."AIzaSyAG41KsWjo5Tjmrik4AMWcWLTPdu3uJRk4");
 
 // Get the specific model you want to use
 
