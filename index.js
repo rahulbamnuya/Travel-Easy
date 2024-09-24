@@ -107,35 +107,35 @@ app.get("/Accommodation",async (req,res)=>{
 });
 app.post('/generate-itinerary', async (req, res) => {
     const { destination, people, preferences, check_in, check_out } = req.body;
+res.send("hello")
+    // // Validate input
+    // if (!destination || !people || !preferences || !check_in || !check_out) {
+    //     return res.status(400).send('Missing required fields');
+    // }
 
-    // Validate input
-    if (!destination || !people || !preferences || !check_in || !check_out) {
-        return res.status(400).send('Missing required fields');
-    }
+    // try {
+    //     const prompt = `Plan a trip to ${destination} for ${people} people. 
+    //     Check-in date: ${check_in}, Check-out date: ${check_out} and their preferences: ${preferences}. 
+    //     Please include details on accommodation, activities, food, budget, and transportation. 
+    //     For each visit, include morning, afternoon, and evening activities. 
+    //     Provide data in a structured format.`;
 
-    try {
-        const prompt = `Plan a trip to ${destination} for ${people} people. 
-        Check-in date: ${check_in}, Check-out date: ${check_out} and their preferences: ${preferences}. 
-        Please include details on accommodation, activities, food, budget, and transportation. 
-        For each visit, include morning, afternoon, and evening activities. 
-        Provide data in a structured format.`;
+    //     const result = await model.generateContent(prompt);
+    //     const text = await result.response.text();
 
-        const result = await model.generateContent(prompt);
-        const text = await result.response.text();
+    //     const accommodation = await model.generateContent(`Extract accommodation information from: ${text}`);
+    //     const activity = await model.generateContent(`Extract activities from: ${text}`);
+    //     const budget = await model.generateContent(`Extract budget from: ${text}`);
+    //     const consideration = await model.generateContent(`Extract important considerations from: ${text}`);
+    //     const day_activity = await model.generateContent(`Extract day-by-day activities from: ${text}`);
 
-        const accommodation = await model.generateContent(`Extract accommodation information from: ${text}`);
-        const activity = await model.generateContent(`Extract activities from: ${text}`);
-        const budget = await model.generateContent(`Extract budget from: ${text}`);
-        const consideration = await model.generateContent(`Extract important considerations from: ${text}`);
-        const day_activity = await model.generateContent(`Extract day-by-day activities from: ${text}`);
+    //     // Assuming you want to save these results somewhere for rendering later
+    //     // You could save these in session or in the database
+    //     // res.locals.accommodation = await accommodation.response.text();
+    //     // ... similarly for other variables
 
-        // Assuming you want to save these results somewhere for rendering later
-        // You could save these in session or in the database
-        // res.locals.accommodation = await accommodation.response.text();
-        // ... similarly for other variables
-
-        // Redirect or render a new view
-        res.redirect("/result_load");
+    //     // Redirect or render a new view
+    //     res.redirect("/result_load");
     } catch (error) {
         console.error('Error generating itinerary:', error);
         res.status(500).send('Error generating itinerary');
