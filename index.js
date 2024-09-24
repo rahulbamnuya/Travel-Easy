@@ -30,6 +30,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname,"/public")))
 // Function to save itinerary to the database
 
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.url}`);
+    next();
+});
+
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+});
 
 
 
