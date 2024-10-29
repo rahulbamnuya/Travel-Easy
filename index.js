@@ -13,7 +13,7 @@ const app = express();
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 // require('dotenv').config();
 const genAI = new GoogleGenerativeAI({
-    apiKey: AIzaSyAG41KsWjo5Tjmrik4AMWcWLTPdu3uJRk4 , // Use your actual API key here
+    apiKey: API_KEY, // Use your actual API key here
 });
 
 // Get the specific model you want to use
