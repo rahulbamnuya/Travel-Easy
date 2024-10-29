@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 
 const bodyParser = require('body-parser');
@@ -11,10 +12,11 @@ var day_activity=4
 var accomodation=5
 const app = express();
 const { GoogleGenerativeAI } = require("@google/generative-ai");
-// require('dotenv').config();
+
 const genAI = new GoogleGenerativeAI({
-    apiKey: API_KEY, // Use your actual API key here
+    apiKey: process.env.API_KEY,
 });
+
 
 // Get the specific model you want to use
 
