@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname,"/public")))
 // Function to save itinerary to the database
 
 app.use((req, res, next) => {
-    console.log(${req.method} ${req.url});
+    console.log(`${req.method} ${req.url}`);
     next();
 });
 
@@ -104,8 +104,7 @@ app.get("/Budget",async (req,res)=>{
 app.get("/Accommodation",async (req,res)=>{
  const text=accomodation
   res.render("layouts/result",{text})
-});
-app.post('/generate-itinerary', async (req, res) => {
+});app.post('/generate-itinerary', async (req, res) => {
     const { destination, people, preferences, check_in, check_out } = req.body;
 
     // Validate input
@@ -114,28 +113,22 @@ app.post('/generate-itinerary', async (req, res) => {
     }
 
     try {
-        const prompt = Plan a trip to ${destination} for ${people} people. 
+        const prompt = `Plan a trip to ${destination} for ${people} people. 
         Check-in date: ${check_in}, Check-out date: ${check_out} and their preferences: ${preferences}. 
         Please include details on accommodation, activities, food, budget, and transportation. 
         For each visit, include morning, afternoon, and evening activities. 
-        Provide data in a structured format.;
+        Provide data in a structured format.`;
 
         const result = await model.generateContent(prompt);
         const text = await result.response.text();
 
-        const accommodation = await model.generateContent(Extract accommodation information from: ${text});
-        const activity = await model.generateContent(Extract activities from: ${text});
-        const budget = await model.generateContent(Extract budget from: ${text});
-        const consideration = await model.generateContent(Extract important considerations from: ${text});
-        const day_activity = await model.generateContent(Extract day-by-day activities from: ${text});
+        const accommodation = await model.generateContent(`Extract accommodation information from: ${text}`);
+        const activity = await model.generateContent(`Extract activities from: ${text}`);
+        const budget = await model.generateContent(`Extract budget from: ${text}`);
+        const consideration = await model.generateContent(`Extract important considerations from: ${text}`);
+        const day_activity = await model.generateContent(`Extract day-by-day activities from: ${text}`);
 
-    //     // Assuming you want to save these results somewhere for rendering later
-    //     // You could save these in session or in the database
-    //     // res.locals.accommodation = await accommodation.response.text();
-    //     // ... similarly for other variables
-
-    //     // Redirect or render a new view
-      res.redirect("/result_load");
+        res.redirect("/result_load");
     } catch (error) {
         console.error('Error generating itinerary:', error);
         res.status(500).send('Error generating itinerary');
@@ -143,7 +136,8 @@ app.post('/generate-itinerary', async (req, res) => {
 });
 
 
+// Start the server
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-    console.log(Server running on port ${port})
-}) 
+    console.log(`Server running on port ${port}`);
+});
