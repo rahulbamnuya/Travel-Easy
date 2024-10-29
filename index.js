@@ -1,6 +1,6 @@
 
 const express = require('express');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const axios = require('axios');
 
@@ -19,10 +19,10 @@ const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/travel_easy', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+// mongoose.connect('mongodb://localhost:27017/travel_easy', {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
 const path = require('path');
 // Use ejs-mate for layout support
 const ejsMate = require('ejs-mate');
@@ -35,17 +35,17 @@ app.engine('ejs', ejsMate);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname,"/public")))
 // Function to save itinerary to the database
-async function saveItineraryToDB(itineraryData) {
-  try {
-    const itinerary = new Itinerary(itineraryData);
-    await itinerary.save();
-    console.log('Itinerary saved successfully!');
-  } catch (err) {
-    console.error('Error saving itinerary:', err);
-  } finally {
-    mongoose.connection.close(); // Close the connection when done
-  }
-}
+// async function saveItineraryToDB(itineraryData) {
+//   try {
+//     const itinerary = new Itinerary(itineraryData);
+//     await itinerary.save();
+//     console.log('Itinerary saved successfully!');
+//   } catch (err) {
+//     console.error('Error saving itinerary:', err);
+//   } finally {
+//     mongoose.connection.close(); // Close the connection when done
+//   }
+// }
 
 
 
@@ -199,16 +199,16 @@ run();
         res.status(500).send('Error generating itinerary');
     }
 });
-app.get('/itineraries', async (req, res) => {
-    const itineraries = await Itinerary.find();
-    console.log(itineraries)
-    res.render('listings/itineraries', { itineraries });
-});
-app.get('/datashow/:id', async (req, res) => {
-    const itineraries = await Itinerary.findById("66b746480a9427bebe5b13b6");
-    console.log(itineraries)
-     res.render('listings/itinerary', { itineraries });
-});
+// app.get('/itineraries', async (req, res) => {
+//     const itineraries = await Itinerary.find();
+//     console.log(itineraries)
+//     res.render('listings/itineraries', { itineraries });
+// });
+// // app.get('/datashow/:id', async (req, res) => {
+//     const itineraries = await Itinerary.findById("66b746480a9427bebe5b13b6");
+//     console.log(itineraries)
+//      res.render('listings/itinerary', { itineraries });
+// });
 
 
 const port = process.env.PORT || 3000;
